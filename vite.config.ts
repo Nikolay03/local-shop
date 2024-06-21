@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/local-shop',
   plugins: [react()],
   resolve: {
     alias: [
