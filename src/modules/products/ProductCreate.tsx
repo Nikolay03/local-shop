@@ -41,7 +41,6 @@ const ProductModal: React.FC<ProductModalProps> = ({
   })
 
   const onSubmit = (data: Omit<Product, 'createdDate' | 'id'>) => {
-    console.warn(data)
     onSave({
       ...product,
       ...data,

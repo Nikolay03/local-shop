@@ -27,7 +27,6 @@ const ProductsList: React.FC = () => {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null)
   const [page, setPage] = useState(1)
   const [pageSize, setPageSize] = useState(5)
-  console.warn(products)
   const debouncedModelFilter = useDebounce(modelFilter, 500)
 
   const fetchProductList = async () => {
