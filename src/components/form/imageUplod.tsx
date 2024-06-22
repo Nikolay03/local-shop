@@ -4,12 +4,16 @@ import { PlusOutlined } from '@ant-design/icons'
 import { useController } from 'react-hook-form'
 import { useZodFormContext } from '@/utils/react-hook-form.ts'
 import { RcFile, UploadFile } from 'antd/lib/upload/interface'
+import styled from 'styled-components'
 
 interface ImageUploadProps {
   name: string
   label: string
 }
 
+const UploadText = styled.div`
+  margin-top: 8px;
+`
 const ImageUpload: React.FC<ImageUploadProps> = ({ name, label }) => {
   const [fileList, setFileList] = useState<UploadFile[]>([])
 
@@ -49,7 +53,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ name, label }) => {
   const uploadButton = (
     <div>
       <PlusOutlined />
-      <div style={{ marginTop: 8 }}>Загрузить</div>
+      <UploadText>Загрузить</UploadText>
     </div>
   )
 

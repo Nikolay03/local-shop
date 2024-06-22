@@ -13,9 +13,24 @@ import dayjs from 'dayjs'
 import useDebounce from '@/hooks/useDebounce.ts'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import { Product } from '@/common/types'
+import styled from 'styled-components'
 
 const { Option } = Select
 const { Search } = Input
+
+const Filter = styled(Flex)`
+  margin-bottom: 16px;
+`
+
+const FieldWrapper = styled.div`
+  width: 200px;
+`
+
+const FieldWrapperSelect = styled(FieldWrapper)`
+  & > div {
+    width: 200px;
+  }
+`
 
 const ProductsList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([])
@@ -161,29 +176,31 @@ const ProductsList: React.FC = () => {
 
   return (
     <div>
-      <div style={{ marginBottom: 16 }}>
-        <Search
-          placeholder='Поиск по модели'
-          onChange={handleModelSearch}
-          style={{ width: 200, marginRight: 16 }}
-        />
-        <Select
-          allowClear
-          placeholder='Категория'
-          onChange={handleCategoryChange}
-          style={{ width: 200, marginRight: 16 }}
-        >
-          <Option value='laptop'>laptop</Option>
-          <Option value='smartphone'>smartphone</Option>
-          <Option value='tablet'>tablet</Option>
-        </Select>
+      <Filter gap={16}>
+        <FieldWrapper>
+          <Search
+            placeholder='Поиск по модели'
+            onChange={handleModelSearch}
+          />
+        </FieldWrapper>
+        <FieldWrapperSelect>
+          <Select
+            allowClear
+            placeholder='Категория'
+            onChange={handleCategoryChange}
+          >
+            <Option value='laptop'>laptop</Option>
+            <Option value='smartphone'>smartphone</Option>
+            <Option value='tablet'>tablet</Option>
+          </Select>
+        </FieldWrapperSelect>
         <Button
           type='primary'
           onClick={addNewProduct}
         >
           Добавить товар
         </Button>
-      </div>
+      </Filter>
       <Table
         dataSource={products}
         columns={columns}
