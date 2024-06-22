@@ -173,9 +173,9 @@ const ProductsList: React.FC = () => {
           onChange={handleCategoryChange}
           style={{ width: 200, marginRight: 16 }}
         >
-          <Option value='laptop'>Ноутбук</Option>
-          <Option value='smartphone'>Смартфон</Option>
-          <Option value='tablet'>Планшет</Option>
+          <Option value='laptop'>laptop</Option>
+          <Option value='smartphone'>smartphone</Option>
+          <Option value='tablet'>tablet</Option>
         </Select>
         <Button
           type='primary'
