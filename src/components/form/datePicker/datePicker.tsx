@@ -6,6 +6,7 @@ import dayjs from 'dayjs'
 
 export type DatePickerProps = AntdDatePickerProps & {
   name: string
+  format: string
   label?: string
 }
 
@@ -15,7 +16,7 @@ export const DatePickerUI = ({ name, label, ...rest }: DatePickerProps) => {
     name,
     control,
   })
-  const value = field.value ? dayjs(field.value, 'YYYY') : null
+  const value = field.value ? dayjs(field.value, rest.format) : null
 
   return (
     <Form.Item
