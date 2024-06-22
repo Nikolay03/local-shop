@@ -1,11 +1,10 @@
 {
-  "name": "test",
+  "name": "test-shop",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "^20",
-    "pnpm": "^9"
+    "node": "^20"
   },
   "scripts": {
     "dev": "vite",
